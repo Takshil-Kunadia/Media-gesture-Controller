@@ -1,0 +1,8 @@
+Python 3.X or more
+--python modules--
+OpenCV / cv2
+mediapipe
+shapely
+pynput
+--media player--
+VLC Media Player
