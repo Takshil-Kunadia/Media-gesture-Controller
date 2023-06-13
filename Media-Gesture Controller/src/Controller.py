@@ -4,8 +4,6 @@ import mediapipe as mp
 from shapely.geometry import Polygon
 from pynput.keyboard import Key, Controller
 
-
-
 class handDetector():
     def __init__(self, mode=False, maxHands=2, detectionCon=0.5, trackCon=0.5):
         self.mode = mode
@@ -43,7 +41,7 @@ class handDetector():
         return lmList
 
 def main():
-    # INITIALISATION
+    # INITIALISATION OF VARIABLES
     i = 0
     c = 0
     flag = 0
@@ -67,7 +65,7 @@ def main():
                 if c > 1:
                     c = 0
 
-                    # Play/Pause
+                    # Play/Pause the video
                     tip_polList = []
                     tip_polList.append(tuple(lmList[4][1:]))
                     tip_polList.append(tuple(lmList[8][1:]))
@@ -95,12 +93,12 @@ def main():
                             print("<<")
                             kb.press(Key.left)
                             kb.release(Key.left)
-                            # SEEK -10
+                            # SEEK -10 Seconds
                         elif lmList[8][1] < lastLm[8][1]:
                             print(">>")
                             kb.press(Key.right)
                             kb.release(Key.right)
-                            # SEEK +10
+                            # SEEK +10 Seconds
 
                     else:
                         if flag == 1:
@@ -112,7 +110,7 @@ def main():
                 lastLm = copy.deepcopy(lmList)
                 c+=1
 
-                # DISPLAYING VIDEO
+                # DISPLAYING VIDEO FEED
                 cv2.imshow("Image", img)
                 cv2.waitKey(1)
 
