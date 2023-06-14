@@ -4,6 +4,7 @@ import mediapipe as mp
 from shapely.geometry import Polygon
 from pynput.keyboard import Key, Controller
 
+# Class to detect hand and its landmarks
 class handDetector():
     def __init__(self, mode=False, maxHands=2, detectionCon=0.5, trackCon=0.5):
         self.mode = mode
@@ -40,6 +41,7 @@ class handDetector():
 
         return lmList
 
+# Main function
 def main():
     # INITIALISATION OF VARIABLES
     i = 0
