@@ -44,13 +44,13 @@ class handDetector():
 # Main function
 def main():
     # INITIALISATION OF VARIABLES
-    i = 0
-    c = 0
-    flag = 0
-    lastLm = []
-    cap = cv2.VideoCapture(0)
-    detector = handDetector()
-    kb = Controller()
+    i = 0 # To store the first frame
+    c = 0 # To count the number of frames
+    flag = 0 # To check if the video is playing or not
+    lastLm = [] # To store the last landmark list
+    cap = cv2.VideoCapture(0) # To capture the video feed
+    detector = handDetector() # To detect the hand
+    kb = Controller() # To control the keyboard
 
     while True:
         success, img = cap.read()
