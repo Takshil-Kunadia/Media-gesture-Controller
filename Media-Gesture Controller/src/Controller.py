@@ -53,17 +53,16 @@ def main():
     kb = Controller() # To control the keyboard
 
     while True:
+        # READING VIDEO FEED
         success, img = cap.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
 
         if (len(lmList) != 0):
-
             if i == 0:
                 lastLm = copy.deepcopy(lmList)
                 i = 1
             else:
-
                 if c > 1:
                     c = 0
 
@@ -89,6 +88,7 @@ def main():
                             print("Play")
                             kb.press(Key.space)
                             kb.release(Key.space)
+                            # PLAY
                             flag = 1
 
                         if lmList[8][1] > lastLm[8][1]:
@@ -104,6 +104,7 @@ def main():
 
                     else:
                         if flag == 1:
+                            # PAUSE
                             print("Pause")
                             flag = 0
                             kb.press(Key.space)
